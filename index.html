@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Title</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Fontawesome JS -->
+	<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+	    crossorigin="anonymous"></script>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	    crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	    crossorigin="anonymous"></script>
+
+	<style>
+		body {
+			padding: 50px;
+		}
+
+		#wrap{
+			position: relative;
+		}
+
+		#heart {
+			width: 100px;
+			height: 100px;
+			background-image: url(heart_animation.svg);
+			animation: stepanime 0.8s steps(28) forwards;
+			display: none;
+			position: absolute;
+			top: -65px;
+			left: -25px;
+		}
+
+		@keyframes stepanime {
+			0% {
+				background-position: 0 0;
+			}
+			100% {
+				background-position: -2800px 0;
+			}
+		}
+
+		#thumbup.active {
+			background: red;
+		}
+
+		/* ※ベンダープレフィックス書いてないので補ってください */
+	</style>
+</head>
+
+<body>
+
+	<div id="wrap">
+		<a id="thumbup" class="btn btn-outline-secondary" href="#" role="button">
+			<i class="fas fa-thumbs-up"></i> 参考になった</a>
+		<div id="heart"></div>
+	</div>
+
+	<script>
+		$(function () {
+			$('#thumbup').click(function (e) {
+				if ($(this).hasClass('active')) {
+					$(this).removeClass('active');
+				} else {
+					// heat animation を表示
+					$('#heart').show();
+
+					setTimeout(function () {
+						$('#heart').hide(); // アニメ終了後に display:none; ボタンが再び押せなくなるため
+						$('#thumbup').addClass('active');
+					}, 1000);
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>
