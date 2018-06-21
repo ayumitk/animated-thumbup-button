@@ -1,1 +1,1 @@
-# Animated Thumbup Button
+# Animated Thumb Up Button
