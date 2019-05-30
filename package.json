@@ -10,5 +10,8 @@
 		"gulp-notify": "^3.2.0",
 		"gulp-plumber": "^1.2.0",
 		"gulp-sass": "^4.0.1"
+	},
+	"dependencies": {
+		"axios": "^0.19.0"
 	}
 }
